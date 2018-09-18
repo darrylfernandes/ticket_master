@@ -9,7 +9,7 @@ SetUp Instructions:
 	>python --version
 
 3) Download the Zip/tarball from the following location on GIT and store it on your local machine
-        https://github.com/darrylfernandes/cubic_weight/blob/master/dist/CubicWeightCalculator-0.1.0.tar.gz
+        https://github.com/darrylfernandes/ticket_master/blob/master/dist/book_movie_tickets-0.1.0.zip
 
 4) Create a directory in the deployment machine to install all packages related to the application
 
