@@ -25,6 +25,8 @@ def get_movies_list():
 
 @rester_app.route('/get_cheap_price', methods=['GET', 'POST'])
 def get_cheap_price():
+    unique_movie_dict = request.json
+
     movie_details = extract_cheapest_ticket_info(unique_movie_dict)
     return jsonify(movie_details)
 
