@@ -1,6 +1,6 @@
-BASE_URL = 'http://webjetapitest.azurewebsites.net'
+BASE_URL = 'REPLACE THIS WITH URL TO CALL'
 MOVIE_TICKET_PROVIDERS = ['cinemaworld', 'filmworld']
 START_ENDPOINT_ALL_MOVIES = '/api/{}/movies'
 START_ENDPOINT_MOVIE_DETAILS = '/api/{}/movie/{}'
-URL_HEADERS = {'x-access-token': 'REPLACE THIS'}
+URL_HEADERS = {'x-access-token': 'REPLACE THIS WITH CORRECT ACCESS TOKEN ID'}
 TIMEOUT = 10  # in seconds

@@ -29,8 +29,11 @@ SetUp Instructions:
 
      a) Go to the directory "path\to\book_movie_tickets_venv\Lib\site-packages\book_movie_tickets\"
      b) Open the file app_constants.py
-     c) Change the following file and provide the correct access token by replacing the text "REPLACE THIS"
-            URL_HEADERS = {'x-access-token': 'REPLACE THIS'}
+     c) Change the following lines in the file by replacing the text as mentioned
+
+            BASE_URL = 'REPLACE THIS TEXT WITH THE URL TO CALL'
+
+            URL_HEADERS = {'x-access-token': 'REPLACE THIS WITH CORRECT ACCESS TOKEN IDs'}
 
 6) The solution can been executed as follows:
 	a) Through a Web page
