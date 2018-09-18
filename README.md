@@ -13,8 +13,3 @@ Build a web app to allow customers to get the cheapest price for movies from the
 
 Design a solution to have a functioning app when not all of the providers are functioning at 100 %.
 
-The goal of the test is to allow you to present your best code that you feel proud off.
-
-Feel free to make and document any assumptions you have made.
-
-The API token provided to you should not be exposed to the public.
