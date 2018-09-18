@@ -1,0 +1,36 @@
+ <!-- <div class="container">
+      <div class="row">
+          <div class="col-lg">
+              <div class="thumbnail">
+                <img src={{ value.Poster }} class="img-thumbnail" alt="{{ value.Title }}" width="100" height="100">
+                  <div class="caption">
+                    <p><button type="button" class="btn btn-info" data-toggle="collapse" data-target="#details_collapse_{{ loop.index }}">Details</button></p>
+                  </div>
+              </div>
+          </div>
+
+          <div class="col-lg">
+              <ul class="list-group">
+                  <li class="list-group-item"><label>{{ value.Title }}</label></li>
+                  <li class="list-group-item"><label>Year: {{ value.Year }}</label></li>
+              </ul>
+          </div>
+
+          <div class=".col-6 .col-lg-4">
+              <img id="wait_loader_{{ loop.index }}" src="{{ url_for('static', filename='images/wait-loader.gif')}}" id="loading-indicator" style="display:block"/>
+              <label class="label label-success" id="price_{{ loop.index }}"></label>
+          </div>
+      </div>
+      <div class="collapse in" id="details_collapse_{{ loop.index }}">
+          <div class="card card-body" id="details_{{ loop.index }}">
+          </div>
+      </div>
+        <script>
+
+            $( "#details_{{ loop.index }}" ).ready(function() {
+               get_cheap_price({{ value.Providers|tojson }}, {{ loop.index }});
+            });
+        </script>
+
+  </div>
+-->

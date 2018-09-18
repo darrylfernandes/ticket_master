@@ -1,0 +1,96 @@
+
+
+<div class="container">
+    {% set row_div_closed = False %}
+    {% for key, value in movie_choices.items() %}
+
+    {% if loop.index == 1 or loop.index % 3 ==0 %}<div class="row">{% else %}{% set row_div_closed = False %}{% endif %}
+
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-header deep-orange lighten-1 white-text">{{ value.Title }} ({{ value.Year }})</div>
+                <div class="card-body">
+                     <div class="thumbnail">
+                        <img src={{ value.Poster }} class="img-thumbnail" alt="{{ value.Title }}" style="width:100px;height:100px;" width="100" height="100">
+                      </div>
+
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="price_mask"><img id="wait_loader_{{ loop.index }}" src="{{ url_for('static', filename='images/wait-loader.gif')}}" id="loading-indicator" style="display:block"/>
+                                </div>
+                                <div class="price_container"><button class="btn btn-warning" id="price_{{ loop.index }}"></button></div>
+
+                            </div>
+                            <div class="col-sm-3">
+                                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#details_collapse_{{ loop.index }}">Details</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal -->
+        <div id="details_collapse_{{ loop.index }}" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">{{ value.Title }} ({{ value.Year }})</h4>
+                    <div class="row">
+                        <div class="col-12 text-muted">
+
+                            <span class="label label-default" id="rated_{{ loop.index }}"></span> |
+                            <span class="label label-default"  id="runtime_{{ loop.index }}"></span> |
+                            <span class="label label-default"  id="genre_{{ loop.index }}"></span> |
+                            <span class="label label-default"  id="language_{{ loop.index }}"></span> |
+                            <span class="label label-default"  id="released_{{ loop.index }}"></span> <label class="label label-default" id="country_{{ loop.index }}"></label> |
+
+                            <span class="label label-default" id="rating_votes_{{ loop.index }}"></span>
+                            <button type="button" class="btn btn-success btn-sm" id="metascore_{{ loop.index }}" data-toggle="tooltip" data-placement="top" title="Metascore"></button>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-body" id="details_{{ loop.index }}">
+                    <div class="panel panel-info">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-sm-3" id="modal_poster_{{ loop.index }}">
+
+                                </div>
+                                <div class="col-lg-12">
+                                    <p id="plot_{{ loop.index }}"></p>
+                                    <b>Director: </b> <p id="director_{{ loop.index }}"></p>
+                                    <b>Writer: </b> <p id="writer_{{ loop.index }}"></p><br>
+                                    <b>Cast: </b> <p id="actors_{{ loop.index }}"></p><br>
+                                    <b>Awards: </b> <p id="awards_{{ loop.index }}"></p><br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+          </div>
+        </div>
+        <script>
+
+            $( "#details_{{ loop.index }}" ).ready(function() {
+               get_cheap_price({{ value.Providers|tojson }}, {{ loop.index }});
+            });
+        </script>
+    {% if loop.index % 2 == 0 %} {% set row_div_closed = True %} </div>{% endif %}
+    {% endfor %}
+    {% if not row_div_closed %}</div>{% endif %}
+</div>
+
+
